@@ -2,9 +2,6 @@
   <div class="mat-body-2">
       <a routerLink="/item">Items</a>
       <a routerLink="/itemlists">Item Lists</a>
-
-      <a *ngIf="logged()" routerLink="/login">Login</a>
-      <a *ngIf="!logged()" style="cursor: pointer;" (click)="logout();">Logout</a>
   </div>
 </mat-toolbar>
 <router-outlet></router-outlet>

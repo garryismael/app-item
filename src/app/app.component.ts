@@ -10,11 +10,4 @@ export class AppComponent {
   constructor(
     private router: Router,
   ) {}
-
-  logged(): boolean {
-    return !localStorage.getItem('id_token');
-  }
-  logout() {
-    this.router.navigate(['/login']);
-  }
 }

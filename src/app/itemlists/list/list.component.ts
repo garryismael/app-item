@@ -16,9 +16,8 @@ export class ItemListsListComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'name',
-    'description',
-    'price',
-    'actions',
+    'items',
+    'total',
   ];
   items: IItemList[] = [];
   dataSource: MatTableDataSource<IItemList>;

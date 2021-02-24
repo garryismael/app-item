@@ -48,6 +48,7 @@ import { TokenInterceptor } from './guards/interceptor';
     ItemListsPutComponent,
     ItemListsDeleteComponent,
     ItemListsCreateComponent,
+    ItemPatchComponent
   ],
   imports: [
     BrowserModule,

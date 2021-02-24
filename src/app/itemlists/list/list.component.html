@@ -23,14 +23,14 @@
       </ng-container>
 
       <!-- Weight Colum -->
-      <ng-container matColumnDef="description">
+      <ng-container matColumnDef="items">
           <mat-header-cell mat-sort-header *matHeaderCellDef> Description </mat-header-cell>
-          <mat-cell *matCellDef="let element">{{ element.description }}</mat-cell>
+          <mat-cell *matCellDef="let element">{{ element.items.length }}</mat-cell>
       </ng-container>
       
-      <ng-container matColumnDef="price">
+      <ng-container matColumnDef="total">
         <mat-header-cell mat-sort-header *matHeaderCellDef> Price </mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element.price }}</mat-cell>
+        <mat-cell *matCellDef="let element">{{ element.total }}</mat-cell>
     </ng-container>
 
       <ng-container matColumnDef="actions">
