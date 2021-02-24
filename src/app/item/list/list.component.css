@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+}
+
+.filter-row {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-paginator {
+  background: transparent;
+}
