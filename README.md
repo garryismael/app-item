@@ -1,5 +1,5 @@
 # Install Dependencies before running the app
-nmp install
+npm install
 
 # Appweb
 
