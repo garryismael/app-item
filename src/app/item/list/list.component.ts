@@ -4,6 +4,7 @@ import { IItem } from 'src/app/models/item.model';
 import { ItemsService } from 'src/app/services/items.service';
 import { ItemCreateComponent } from '../create/create.component';
 import { ItemDeleteComponent } from '../delete/delete.component';
+import { ItemPatchComponent } from '../patch/patch.component';
 import { ItemPutComponent } from '../put/put.component';
 
 @Component({
@@ -62,13 +63,19 @@ export class ItemListComponent implements OnInit {
     this.applyFilter();
   }
 
-  editEntreprise(row: IItem): void {
+  editItem(row: IItem): void {
     this.dialog.open(ItemPutComponent, {
       data: row,
     });
   }
 
-  deleteEntreprise(row: IItem): void {
+  patchItem(row: IItem): void {
+    this.dialog.open(ItemPatchComponent, {
+      data: row
+    });
+  }
+
+  deleteItem(row: IItem): void {
     this.dialog
       .open(ItemDeleteComponent)
       .afterClosed()

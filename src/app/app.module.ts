@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +17,9 @@ import { ItemListsPutComponent } from './itemlists/put/put.component';
 import { ItemListsDeleteComponent } from './itemlists/delete/delete.component';
 import { ItemListsCreateComponent } from './itemlists/create/create.component';
 import { LoginComponent } from './auth/login/login.component';
-import { LogoutComponent } from './auth/logout/logout.component';
+import { AuthService } from './services/auth.service';
+import { ItemlistsService } from './services/itemlists.service';
+import { TokenInterceptor } from './guards/interceptor';
 
 
 @NgModule({
@@ -35,18 +37,17 @@ import { LogoutComponent } from './auth/logout/logout.component';
     ItemListsCreateComponent,
     ItemListsListComponent,
     LoginComponent,
-    LogoutComponent
   ],
   entryComponents: [
     ItemCreateComponent,
-    ItemPatchComponent,
+    ItemListsPatchComponent,
     ItemPutComponent,
     ItemDeleteComponent,
     ItemListsCreateComponent,
     ItemListsPatchComponent,
     ItemListsPutComponent,
     ItemListsDeleteComponent,
-    ItemListsCreateComponent
+    ItemListsCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,15 @@ import { LogoutComponent } from './auth/logout/logout.component';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService,
+    ItemlistsService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

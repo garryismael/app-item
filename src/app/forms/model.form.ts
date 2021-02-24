@@ -4,12 +4,7 @@ export class ModelFormControl extends FormControl {
   label: string;
   property: string;
 
-  constructor(
-    label: string,
-    property: string,
-    value: any,
-    validator: any
-  ) {
+  constructor(label: string, property: string, value: any, validator: any) {
     super(value, validator);
     this.label = label;
     this.property = property;
@@ -30,6 +25,8 @@ export class ModelFormControl extends FormControl {
         } else if (errorName === 'select') {
           messages.push(`${this.label} est invalide.`);
         } else if (errorName === 'min') {
+          messages.push(`${this.value} est insuffisante.`);
+        } else if (errorName === 'max') {
           messages.push(`${this.value} est insuffisante.`);
         }
       }

@@ -1,1 +1,27 @@
-<p>patch works!</p>
+<div>
+  <h2 mat-dialog-title>
+    Patch An Item
+  </h2>
+  <div *ngFor="let message of messages" class="text text-danger">
+    {{ message }}
+  </div>
+</div>
+<mat-dialog-content>
+    <form class="mat-form-field" novalidate [formGroup]="formGroup" (ngSubmit)="submitForm()">
+        <div *ngFor="let control of formGroup.modelControls">
+            <mat-form-field>
+                <mat-label>{{ control.label }}</mat-label>
+                <input matInput formControlName="{{ control.property }}">
+                <mat-hint *ngIf="(formSubmitted || control.dirty || control.touched) && control.invalid">
+                    <mat-error *ngFor="let error of control.validationMessages">
+                        {{ error }}
+                    </mat-error>
+                </mat-hint>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button type="submit" [disabled]="formSubmitted && formGroup.invalid"
+            [class.mat-button-toggle-disabled]="formSubmitted && formGroup.invalid">
+            Patch
+        </button>
+    </form>
+</mat-dialog-content>

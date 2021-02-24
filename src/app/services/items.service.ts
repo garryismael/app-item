@@ -7,7 +7,7 @@ import { IItem } from '../models/item.model';
   providedIn: 'root'
 })
 export class ItemsService {
-  private endPoint = 'http://intern-test.hazenfield.com/items/';
+  private endPoint = 'http://intern-test.hazenfield.com/items';
   constructor(private http: HttpClient) { }
 
   getAllItems(): Observable<IItem[]> {
@@ -31,6 +31,6 @@ export class ItemsService {
   }
 
   deleteItem(item: IItem): Observable<any> {
-    return this.http.delete(`${this.endPoint}${item.id}`);
+    return this.http.delete(`${this.endPoint}/${item.id}`);
   }
 }

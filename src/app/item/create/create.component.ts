@@ -18,8 +18,7 @@ export class ItemCreateComponent {
     private snackBar: MatSnackBar,
     private itemService: ItemsService,
     private dialogRef: MatDialogRef<ItemCreateComponent>
-  ) {
-  }
+  ) {}
 
   submitForm(): void {
     this.formSubmitted = true;

@@ -10,8 +10,12 @@ export class ItemlistsService {
   private endPoint = 'http://intern-test.hazenfield.com/itemlists';
   constructor(private http: HttpClient) { }
 
-  getAllListItems(): Observable<IItemList> {
-    return this.http.get<IItemList>(this.endPoint);
+  getAllListItems(): Observable<IItemList[]> {
+    return this.http.get<IItemList[]>(this.endPoint);
+  }
+
+  postListItems(list: IItemList): Observable<IItemList> {
+    return this.http.post<IItemList>(this.endPoint, list);
   }
 
   patchAllListItems(itemlists: IItemList): Observable<any> {
@@ -22,7 +26,7 @@ export class ItemlistsService {
     return this.http.put<any>(`${this.endPoint}/${itemsLists.id}`, itemsLists);
   }
 
-  deleteAllListIems(itemsList: IItemList): Observable<any> {
+  deleteListItems(itemsList: IItemList): Observable<any> {
     return this.http.delete<any>(`${this.endPoint}/${itemsList.id}`);
   }
 }

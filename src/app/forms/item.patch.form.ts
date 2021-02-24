@@ -3,7 +3,7 @@ import { IItem } from '../models/item.model';
 import { ModelFormControl } from './model.form';
 import { ModelFormGroup } from './model.formGroup';
 
-export class ItemFormGroup extends ModelFormGroup {
+export class ItemPatchFormGroup extends ModelFormGroup {
   constructor(item: IItem) {
     super({
       name: new ModelFormControl(
@@ -11,7 +11,6 @@ export class ItemFormGroup extends ModelFormGroup {
         'name',
         item.name,
         Validators.compose([
-          Validators.required,
           Validators.minLength(3),
           Validators.maxLength(50),
         ])
@@ -21,7 +20,6 @@ export class ItemFormGroup extends ModelFormGroup {
         'description',
         item.description,
         Validators.compose([
-          Validators.required,
           Validators.minLength(5),
           Validators.maxLength(50),
         ])
@@ -31,7 +29,6 @@ export class ItemFormGroup extends ModelFormGroup {
         'price',
         item.price,
         Validators.compose([
-          Validators.required, 
           Validators.min(1)
         ])
       ),

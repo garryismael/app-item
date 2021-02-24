@@ -10,32 +10,28 @@ export class ListItemFormGroup extends ModelFormGroup {
         'name',
         'name',
         itemLists.name,
-        Validators.compose(
-          [
-            Validators.required,
-            Validators.maxLength(50),
-           Validators.minLength(3)
-          ]
-        )
+        Validators.compose([
+          Validators.required,
+          Validators.maxLength(50),
+          Validators.minLength(3),
+        ])
       ),
       description: new ModelFormControl(
         'description',
         'description',
         itemLists,
-        Validators.compose(
-          [
-            Validators.required,
-            Validators.minLength(50),
-            Validators.maxLength(5)
-          ]
-        )
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(50),
+          Validators.maxLength(5),
+        ])
       ),
       price: new ModelFormControl(
         'price',
         'price',
         itemLists,
         Validators.max(1)
-      )
+      ),
     });
   }
 }

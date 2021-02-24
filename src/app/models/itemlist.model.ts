@@ -8,7 +8,7 @@ export interface IItemList {
   total: number;
 }
 
-export class ItemLists {
+export class ItemList {
   id: number;
   name: string;
   user: number;
